@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>马克布丁上校 | 个人项目作品集</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">MB</span>
+        <span>马克布丁上校</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">关于我</a>
+        <a href="#projects">项目作品</a>
+        <a href="#contact">联系我</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">AI / 产品</p>
+            <h1>马克布丁上校</h1>
+            <p class="hero-line">个人项目作品集</p>
+            <p class="hero-desc">
+              收录软件应用、AI 工作流与游戏项目。每个项目都保留 GitHub 仓库入口，并尽量提供视频演示或可下载体验包。
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="https://github.com/WHRRHW" target="_blank" rel="noreferrer">查看 GitHub</a>
+              <a class="btn" href="mailto:whraichiwhr@163.com">发送邮件</a>
+            </div>
+          </div>
+
+          <div class="hero-board" aria-label="作品集概览">
+            <div class="hero-logo">MB</div>
+            <div class="metric large">
+              <strong>05</strong>
+              <span>项目作品</span>
+            </div>
+            <div class="metric">
+              <strong>03</strong>
+              <span>主要分类</span>
+            </div>
+            <div class="metric">
+              <strong>02</strong>
+              <span>可下载程序</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about split-section" id="about">
+        <p class="section-kicker">关于我</p>
+        <div>
+          <h2>把 AI 想法、产品设计和可运行项目放到同一个展台上。</h2>
+          <p>
+            这个网站面向中文访问者，用来快速了解我的项目方向、技术栈和可体验成果。项目展示不只放链接，也会提供演示视频、安装包或压缩包下载。
+          </p>
+        </div>
+      </section>
+
+      <section class="projects" id="projects">
+        <div class="section-heading">
+          <p class="section-kicker">项目作品</p>
+          <h2>分类浏览我的项目。</h2>
+        </div>
+        <div class="filters" id="filters" aria-label="项目分类筛选"></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="values">
+        <p class="section-kicker">能力方向</p>
+        <div class="value-row">
+          <article>
+            <span>01</span>
+            <strong>AI 应用</strong>
+            <p>LLM、OCR、ASR、Vision</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>产品工作流</strong>
+            <p>任务管理、智能排程、表单自动化</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>应用开发</strong>
+            <p>Vue、uni-app、Spring Boot</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>游戏项目</strong>
+            <p>Unity、Windows 打包、关卡体验</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact split-section" id="contact">
+        <p class="section-kicker">联系我</p>
+        <div>
+          <h2>欢迎查看项目，也欢迎交流想法。</h2>
+          <p>邮箱：<a href="mailto:whraichiwhr@163.com">whraichiwhr@163.com</a></p>
+          <p>GitHub：<a href="https://github.com/WHRRHW" target="_blank" rel="noreferrer">github.com/WHRRHW</a></p>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="icon-btn" type="button" aria-label="关闭" data-close>×</button>
+        <div id="modalBody"></div>
+      </article>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
