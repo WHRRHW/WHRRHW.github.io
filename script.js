@@ -120,6 +120,7 @@ const filterRoot = document.querySelector("#filters");
 const gridRoot = document.querySelector("#projectGrid");
 const modal = document.querySelector("#projectModal");
 const modalBody = document.querySelector("#modalBody");
+let galleryTimer = null;
 
 function renderFilters() {
   filterRoot.innerHTML = filters
@@ -231,13 +232,45 @@ function openProject(projectId) {
 
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
+  startGalleryAutoPlay();
 }
 
 function closeModal() {
   const video = modal.querySelector("video");
   if (video) video.pause();
+  stopGalleryAutoPlay();
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function stopGalleryAutoPlay() {
+  if (galleryTimer) {
+    clearInterval(galleryTimer);
+    galleryTimer = null;
+  }
+}
+
+function setGalleryImage(gallery, targetThumb) {
+  const mainImage = gallery.querySelector(".gallery-main img");
+  const thumbs = [...gallery.querySelectorAll(".thumb")];
+  mainImage.src = targetThumb.dataset.image;
+  thumbs.forEach((item) => item.classList.remove("active"));
+  targetThumb.classList.add("active");
+}
+
+function stepGallery(gallery, step = 1) {
+  const thumbs = [...gallery.querySelectorAll(".thumb")];
+  if (thumbs.length < 2) return;
+  const currentIndex = thumbs.findIndex((item) => item.classList.contains("active"));
+  const nextIndex = (currentIndex + step + thumbs.length) % thumbs.length;
+  setGalleryImage(gallery, thumbs[nextIndex]);
+}
+
+function startGalleryAutoPlay() {
+  stopGalleryAutoPlay();
+  const gallery = modal.querySelector(".gallery");
+  if (!gallery || gallery.querySelectorAll(".thumb").length < 2) return;
+  galleryTimer = setInterval(() => stepGallery(gallery, 1), 3200);
 }
 
 filterRoot.addEventListener("click", (event) => {
@@ -266,19 +299,16 @@ modal.addEventListener("click", (event) => {
   if (!thumb && !stepButton) return;
 
   const gallery = (thumb || stepButton).closest(".gallery");
-  const mainImage = gallery.querySelector(".gallery-main img");
-  const thumbs = [...gallery.querySelectorAll(".thumb")];
   let targetThumb = thumb;
 
   if (stepButton) {
-    const currentIndex = thumbs.findIndex((item) => item.classList.contains("active"));
-    const nextIndex = (currentIndex + Number(stepButton.dataset.galleryStep) + thumbs.length) % thumbs.length;
-    targetThumb = thumbs[nextIndex];
+    stepGallery(gallery, Number(stepButton.dataset.galleryStep));
+    startGalleryAutoPlay();
+    return;
   }
 
-  mainImage.src = targetThumb.dataset.image;
-  thumbs.forEach((item) => item.classList.remove("active"));
-  targetThumb.classList.add("active");
+  setGalleryImage(gallery, targetThumb);
+  startGalleryAutoPlay();
 });
 
 document.addEventListener("keydown", (event) => {
