@@ -2,7 +2,7 @@ const projects = [
   {
     id: "autofill",
     title: "AutoFill",
-    category: "软件/电脑应用",
+    category: "vibe coding应用",
     intro: "自动提取结构化信息填表。",
     tech: ["CustomTkinter", "python-docx", "pdfplumber", "openai SDK", "docxtpl", "pydantic"],
     github: "https://github.com/WHRRHW/AutoFill-",
@@ -19,7 +19,7 @@ const projects = [
   {
     id: "unitask",
     title: "UniTask AI",
-    category: "软件/App",
+    category: "vibe coding应用",
     intro: "面向大学生的智能任务与课表管理应用。",
     tech: ["uni-app", "Vue3", "Spring Boot", "MyBatis-Plus", "MySQL", "JWT", "OCR/ASR/Vision/LLM"],
     github: "https://github.com/WHRRHW/UniTask_AI-",
@@ -44,7 +44,7 @@ const projects = [
   {
     id: "spooky-castle",
     title: "Spooky Castle",
-    category: "游戏",
+    category: "AIGC设计",
     intro: "一款西欧双人解谜探险小游戏。",
     tech: ["Unity", "Windows Build", "Game Jam"],
     github: "https://github.com/WHRRHW/gamejam-spooky-castle",
@@ -80,8 +80,8 @@ const projects = [
   {
     id: "ambers-last-night",
     title: "Amber's Last Night",
-    category: "游戏",
-    intro: "已打包为 Windows 程序的 Unity 课程游戏项目。",
+    category: "AIGC设计",
+    intro: "已打包为 Windows 程序的 Unity 课程 AIGC设计项目。",
     tech: ["Unity", "Windows Installer", "Coursework Game"],
     github: "https://github.com/WHRRHW/ambers-last-night",
     coverImage: "./assets/covers/ambers-last-night-cover.png",
@@ -95,18 +95,18 @@ const projects = [
     downloads: [{ label: "查看下载说明", href: "https://github.com/WHRRHW/ambers-last-night" }],
     cover: "linear-gradient(135deg, #11150f 0%, #31402e 35%, #bec6b3 100%)",
     initials: "AL",
-    details: "大二下游戏课设项目，已打包为 Windows 安装程序，并提供截图展示游戏画面与玩法。"
+    details: "大二下 AIGC设计课设项目，已打包为 Windows 安装程序，并提供截图展示画面与玩法。"
   },
   {
     id: "ooad-service-design",
     title: "OOAD 售后与服务模块设计",
-    category: "软件/设计类",
+    category: "概要设计",
     intro: "围绕售后服务流程、工单生命周期和模块架构展开的 OOAD 设计文档。",
-    tech: ["OOAD", "UML", "模块设计", "概要设计", "售后服务流程"],
+    tech: ["OOAD", "UML", "概要设计", "模块架构", "售后服务流程"],
     github: "",
     coverImage: "./assets/covers/ooad-service-design-cover.png",
-    images: [],
-    downloads: [{ label: "下载设计文档", href: "./assets/docs/ooad-service-design.pdf" }],
+    images: ["./assets/screenshots/ooad/ooad-01.png"],
+    downloads: [{ label: "下载网站版 PDF", href: "./assets/docs/ooad-service-design.pdf" }],
     cover: "linear-gradient(135deg, #c6cfbd 0%, #f7f8f5 48%, #9ba88f 100%)",
     initials: "OO",
     details: "该项目聚焦售后与服务模块的业务建模和系统设计，包含需求分析、用例建模、领域模型、交互设计、流程设计、架构设计和数据库设计等内容。"
@@ -154,7 +154,7 @@ function renderProjects() {
                 <span class="tag">${project.category}</span>
                 ${project.images?.length ? `<span class="tag">${project.images.length} 张截图</span>` : ""}
                 ${project.video ? '<span class="tag">视频演示</span>' : ""}
-                ${project.downloads.length ? '<span class="tag">下载说明</span>' : ""}
+                ${project.downloads.length ? '<span class="tag">下载资料</span>' : ""}
               </div>
               <h3>${project.title}</h3>
               <p>${project.intro}</p>
