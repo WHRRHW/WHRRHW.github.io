@@ -96,6 +96,20 @@ const projects = [
     cover: "linear-gradient(135deg, #11150f 0%, #31402e 35%, #bec6b3 100%)",
     initials: "AL",
     details: "大二下游戏课设项目，已打包为 Windows 安装程序，并提供截图展示游戏画面与玩法。"
+  },
+  {
+    id: "ooad-service-design",
+    title: "OOAD 售后与服务模块设计",
+    category: "软件/设计类",
+    intro: "围绕售后服务流程、工单生命周期和模块架构展开的 OOAD 设计文档。",
+    tech: ["OOAD", "UML", "模块设计", "概要设计", "售后服务流程"],
+    github: "",
+    coverImage: "./assets/covers/ooad-service-design-cover.png",
+    images: [],
+    downloads: [{ label: "下载设计文档", href: "./assets/docs/ooad-service-design.pdf" }],
+    cover: "linear-gradient(135deg, #c6cfbd 0%, #f7f8f5 48%, #9ba88f 100%)",
+    initials: "OO",
+    details: "该项目聚焦售后与服务模块的业务建模和系统设计，包含需求分析、用例建模、领域模型、交互设计、流程设计、架构设计和数据库设计等内容。"
   }
 ];
 
@@ -149,7 +163,7 @@ function renderProjects() {
               </div>
             </div>
             <div class="card-actions">
-              <a class="btn primary" href="${project.github}" target="_blank" rel="noreferrer">GitHub 仓库</a>
+              ${project.github ? `<a class="btn primary" href="${project.github}" target="_blank" rel="noreferrer">GitHub 仓库</a>` : ""}
               <button class="btn" type="button" data-project="${project.id}">查看详情</button>
             </div>
           </div>
@@ -207,7 +221,7 @@ function openProject(projectId) {
           ${project.tech.map((item) => `<span class="tag">${item}</span>`).join("")}
         </div>
         <div class="modal-actions">
-          <a class="btn primary" href="${project.github}" target="_blank" rel="noreferrer">打开 GitHub</a>
+          ${project.github ? `<a class="btn primary" href="${project.github}" target="_blank" rel="noreferrer">打开 GitHub</a>` : ""}
           ${project.video ? `<a class="btn" href="${project.video}" target="_blank">打开视频</a>` : ""}
           ${project.downloads.map((download) => `<a class="btn" href="${download.href}" target="_blank" rel="noreferrer">${download.label}</a>`).join("")}
         </div>
